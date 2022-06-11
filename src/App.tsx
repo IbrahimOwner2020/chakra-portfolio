@@ -5,6 +5,7 @@ import {
 	Spacer,
 	useColorMode,
 	VStack,
+    useMediaQuery
 } from "@chakra-ui/react";
 import React from "react";
 import {
@@ -21,12 +22,12 @@ import Social from "./components/Social";
 const App = () => {
 	const { colorMode, toggleColorMode } = useColorMode();
 	const isDark = colorMode === "dark";
+    const [isSmallerScreen] = useMediaQuery('(min-width:600px)')
 
 	return (
-		<VStack p={5}>
-			<Flex w="100%">
+		<VStack p={isSmallerScreen ? 5 : 2}>
+			<Flex w="100%" alignItems='center'>
 				<Heading
-					ml="8"
 					size="md"
 					fontWeight="semibold"
 					color="cyan.400"

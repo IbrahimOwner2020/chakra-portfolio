@@ -1,23 +1,18 @@
-import {
-	Box,
-	Flex,
-	Heading,
-	Icon,
-	Text,
-	useMediaQuery,
-} from "@chakra-ui/react";
-import { DiCodeigniter, DiAndroid, DiWebplatform } from "react-icons/di";
+import { Box, Flex, Heading, Icon, Text } from "@chakra-ui/react";
+import { DiFirebase, DiReact } from "react-icons/di";
+import { FaShopify } from 'react-icons/fa'
 
 const Profile = () => {
-	const [isNotSmaller] = useMediaQuery("(min-width:600px)");
-
 	return (
 		<Flex
-			direction={isNotSmaller ? "row" : "column"}
+			direction={["column", "column", "row"]}
 			w="100%"
-			maxWidth={{ base: "100vh", md: "130vh", lg: "130vh", xl: "130vh" }}
+			maxWidth={{ xl: "1200px" }}
+            gap={10}
+            justifyContent='center'
+            alignItems='center'
 		>
-			<Box alignSelf="center" px="32" py="16">
+			<Box alignSelf="center" py="8">
 				<Heading fontWeight="extrabold" color="cyan.500" size="4xl">
 					1.5+
 				</Heading>
@@ -25,11 +20,11 @@ const Profile = () => {
 					Years of Experience
 				</Text>
 			</Box>
-			<Box alignSelf="center" px="32" py="16">
+			<Box alignSelf="center" py="8">
 				<Text fontWeight="bold" fontSize="2xl">
 					Front-End Developer, Based on React and its frameworks
 				</Text>
-				<Flex direction={isNotSmaller ? "row" : "column"} mt={8}>
+				<Flex direction={["column", "row"]} mt={8} gap={4} justifyContent='space-between' alignItems='center'>
 					<Flex
 						rounded="xl"
 						direction="column"
@@ -42,7 +37,7 @@ const Profile = () => {
 						<Icon
 							color="white"
 							p="4"
-							as={DiAndroid}
+							as={DiReact}
 							w="24"
 							h="24"
 						/>
@@ -52,7 +47,7 @@ const Profile = () => {
 							fontSize="xl"
 							fontWeight="semibold"
 						>
-							Android Apps
+							React Web applications
 						</Text>
 					</Flex>
 					<Flex
@@ -68,7 +63,7 @@ const Profile = () => {
 						<Icon
 							color="white"
 							p="4"
-							as={DiCodeigniter}
+							as={DiFirebase}
 							w="24"
 							h="24"
 						/>
@@ -78,7 +73,7 @@ const Profile = () => {
 							fontSize="xl"
 							fontWeight="semibold"
 						>
-							Flutter Apps
+							Firebase
 						</Text>
 					</Flex>
 					<Flex
@@ -94,7 +89,7 @@ const Profile = () => {
 						<Icon
 							color="white"
 							p="4"
-							as={DiWebplatform}
+							as={FaShopify}
 							w="24"
 							h="24"
 						/>
@@ -104,7 +99,7 @@ const Profile = () => {
 							fontSize="xl"
 							fontWeight="semibold"
 						>
-							Web Apps
+							Shopify Themes
 						</Text>
 					</Flex>
 				</Flex>

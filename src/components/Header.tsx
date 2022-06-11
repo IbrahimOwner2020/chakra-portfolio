@@ -4,22 +4,20 @@ import {
 	Circle,
 	Flex,
 	Image,
+	Spacer,
 	Stack,
 	Text,
 	useColorMode,
-	useMediaQuery,
 } from "@chakra-ui/react";
-import React from "react";
 
 const Header = () => {
 	const { colorMode } = useColorMode();
 	const isDark = colorMode === "dark";
 
-	const [isNotSmaller] = useMediaQuery("min-width:600px");
-
 	return (
-		<Stack>
+		<Stack position="relative">
 			<Circle
+				top={["300px", "300px", "0px"]}
 				position="absolute"
 				bg="blue.100"
 				opacity="0.1"
@@ -27,12 +25,12 @@ const Header = () => {
 				alignSelf="flex-end"
 			/>
 			<Flex
-				direction={isNotSmaller ? "row" : "column"}
-				gap="200px"
-				p={isNotSmaller ? "32" : "0"}
+				direction={["column", "column", "row"]}
+				pr={["0", "0", "32"]}
+				maxWidth={{ md: "700px", lg: "900px", xl: "1200px" }}
 				alignSelf="flex-start"
 			>
-				<Box mt={isNotSmaller ? "0" : 16} alignSelf="flex-start">
+				<Box mt={["0", "16"]} alignSelf="flex-start">
 					<Text fontSize="5xl" fontWeight="semibold">
 						Hi, I am
 					</Text>
@@ -55,17 +53,20 @@ const Header = () => {
 					>
 						Hire Me
 					</Button>
+				</Box>
+				<Spacer />
+				<Circle size="300px" alignSelf="center" mt="12">
 					<Image
+						fit="cover"
+						align="top"
 						boxSize="300px"
 						boxShadow="lg"
 						backgroundColor="transparent"
 						borderRadius="full"
 						alignSelf="center"
-						mt={isNotSmaller ? "0" : "12"}
-						mb={isNotSmaller ? "0" : "12"}
 						src="/kidibra.jpg"
 					/>
-				</Box>
+				</Circle>
 			</Flex>
 		</Stack>
 	);
